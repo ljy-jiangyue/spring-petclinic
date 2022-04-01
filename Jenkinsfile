@@ -9,7 +9,7 @@ cp -r ./target ~/target'''
     }
     stage('Sonarqube Analysis') {
       steps {
-        withSonarQubeEnv('sonarqube') {
+        withSonarQubeEnv('static') {
           sh './mvnw clean package sonar:sonar'
         }
       }
