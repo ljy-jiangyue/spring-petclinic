@@ -6,12 +6,12 @@
   gather_facts: false
 
   tasks:
-  - name: get local file name
+  - name: get jar
     local_action: shell ls {{ pwd }}/target/*.jar
     register: file_name
     tags: test
 
-  - name: upload jar file to server
+  - name: push to server
     tags:
      - upload
      - test
@@ -20,6 +20,6 @@
      dest: ~/
     when: file_name.stdout != ""
 
-  - name: start webserver
+  - name: start server
     shell: "nohup java -jar ~/*.jar &"
     tags: start
