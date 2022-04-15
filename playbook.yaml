@@ -1,6 +1,6 @@
 - hosts: web
   vars:
-    pwd: /var/lib/jenkins/workspace/pp1
+    pwd: /var/lib/jenkins/workspace/pp1_main
 
   remote_user: vagrant
   gather_facts: false
