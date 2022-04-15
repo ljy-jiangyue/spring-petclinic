@@ -10,7 +10,7 @@ cp -r ./target ~/target'''
     stage('jar') {
       steps {
        
-          sh 'java -jar target/*.jar'
+          sh 'ansible-playbook playbook.yaml --private-key /.ssh/id_rsa -i hosts'
         
       }
     }
