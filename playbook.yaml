@@ -1,17 +1,17 @@
 - hosts: web
   vars:
     pwd: /var/lib/jenkins/workspace/pp1_main
-
+    
   remote_user: vagrant
   gather_facts: false
 
   tasks:
-  - name: get jar
+  - name: get local file name
     local_action: shell ls {{ pwd }}/target/*.jar
     register: file_name
     tags: test
 
-  - name: push to server
+  - name: upload
     tags:
      - upload
      - test
@@ -20,6 +20,6 @@
      dest: ~/
     when: file_name.stdout != ""
 
-  - name: start server
-    shell: "nohup java -jar ~/*.jar &"
+  - name: start
+    shell: "nohup java -jar ~/*.jar > log.out &"
     tags: start
