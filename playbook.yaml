@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: web
   vars:
     pwd: /var/lib/jenkins/workspace/pp1_main
     
